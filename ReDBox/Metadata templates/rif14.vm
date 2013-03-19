@@ -2,7 +2,7 @@
     #set($valueMap = $util.getList($item, $field))
     #foreach($key in $valueMap.keySet())
         #set($value = $valueMap.get($key))     
-            #if ($label != "" && $value.get($label)!= "")				
+            #if ($label != "" && $value.get($label)!= "")f				
                 #set($labelVal = $value.get($label))				
                 #if ($anzsrc == "anzsrc")
                     #set($lastIndex = $labelVal.lastIndexOf('/') + 1 )
@@ -348,14 +348,14 @@
                     #set ($mime_type = $row.get("dc:type"))
                     #set ($schema = $row.get("dc:conformsTo"))
                     #if ("$!mime_type" != "" || "$!schema" != "")
-                        <format>
+                        <rif:format>
                             #if ("$!mime_type" != "")
                                 <rif:identifier type="mediaType">$util.encodeXml($mime_type)</rif:identifier>
                             #end
                             #if ("$!schema" != "")
                                 <rif:identifier type="uri">$util.encodeXml($schema)</rif:identifier>
                             #end
-                        </format>
+                        </rif:format>
                     #end
                 </rif:relatedInfo>
             #end
