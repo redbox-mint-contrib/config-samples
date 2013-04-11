@@ -22,7 +22,7 @@ Run these:
     sudo chmod u+x redbox-mint.sh
     sudo chown -R redbox /home/redbox
     
-    sudo apt-get install apache2
+    sudo apt-get install apache2 openjdk-7-jdk
     sudo apt-get install denyhosts htop
 
     cd /home/redbox
