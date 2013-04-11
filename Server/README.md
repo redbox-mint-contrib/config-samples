@@ -23,7 +23,7 @@ Run these:
     sudo chown -R redbox /home/redbox
     
     sudo apt-get install apache2 openjdk-7-jdk
-    sudo apt-get install denyhosts htop
+    sudo apt-get install denyhosts htop unzip
 
     cd /etc/apache2/mods-enabled
     sudo ln -s ../mods-available/proxy_http.load
@@ -33,7 +33,11 @@ Run these:
     cd /home/redbox
     sudo ./redbox.cron
 
-
+    cd /opt/mint/server
+    sudo -u redbox ./tf_batch_harvest.sh
+    sudo wget http://download.geonames.org/export/dump/allCountries.zip
+    sudo unzip allCountries.zip
+    sudo -u redbox ./geo_harvest.sh allCountries.txt
 
 
 Other work items you'll need to do once Mint is running:
