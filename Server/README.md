@@ -19,19 +19,23 @@ Run these:
     sudo chmod u+x deploy.sh
     sudo chmod u+x redbox.cron
     sudo chmod u+x redbox-mint.sh
+    sudo chown -R redbox /home/redbox
     
     sudo apt-get install apache2 maven2
     sudo apt-get install denyhosts
 
+    cd /home/redbox
+    sudo ./redbox.cron
 
 
+
+
+Other work items you'll need to do once Mint is running:
+* Load the GeoNames data: 
+* Load the Mint data
 
 Scripts
 * redbox.cron - a cron job usually placed in /etc/cron.daily/
 * apache - the apache config
 * redbox-mint.sh - a /etc/init.d/ script
 * deploy.sh - takes 1 param (redbox | mint) and checks to see if there's a new deployment
-
-Other work items you'll need to do once Mint is running:
-* Load the GeoNames data: 
-* Load the Mint data
