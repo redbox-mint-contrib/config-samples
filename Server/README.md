@@ -25,6 +25,11 @@ Run these:
     sudo apt-get install apache2 openjdk-7-jdk
     sudo apt-get install denyhosts htop
 
+    cd /etc/apache2/mods-enabled
+    sudo ln -s ../mods-available/proxy_http.load
+    sudo ln -s ../mods-available/proxy.conf 
+    sudo ln -s ../mods-available/proxy.load
+
     cd /home/redbox
     sudo ./redbox.cron
 
