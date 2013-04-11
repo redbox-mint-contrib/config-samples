@@ -16,13 +16,14 @@ Run these:
     sudo wget https://raw.github.com/redbox-mint-contrib/config-samples/master/Server/deploy.sh
     sudo wget https://raw.github.com/redbox-mint-contrib/config-samples/master/Server/redbox.cron
     sudo wget https://raw.github.com/redbox-mint-contrib/config-samples/master/Server/redbox-mint.sh
+    sudo wget https://raw.github.com/redbox-mint-contrib/config-samples/master/Server/apache
     sudo chmod u+x deploy.sh
     sudo chmod u+x redbox.cron
     sudo chmod u+x redbox-mint.sh
     sudo chown -R redbox /home/redbox
     
-    sudo apt-get install apache2 maven2
-    sudo apt-get install denyhosts
+    sudo apt-get install apache2
+    sudo apt-get install denyhosts htop
 
     cd /home/redbox
     sudo ./redbox.cron
