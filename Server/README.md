@@ -20,6 +20,7 @@ Run these:
     sudo chmod u+x deploy.sh
     sudo chmod u+x redbox.cron
     sudo chmod u+x redbox-mint.sh
+    sudo mv apache /etc/apache2/mods-available/redbox.conf
     sudo chown -R redbox /home/redbox
     
     sudo apt-get install apache2 openjdk-7-jdk
@@ -29,6 +30,8 @@ Run these:
     sudo ln -s ../mods-available/proxy_http.load
     sudo ln -s ../mods-available/proxy.conf 
     sudo ln -s ../mods-available/proxy.load
+    sudo ln -s ../mods-available/redbox.conf
+    sudo apachectl restart
 
     cd /home/redbox
     sudo ./redbox.cron
