@@ -41,7 +41,9 @@ echo INSTALL_DIR: $INSTALL_DIR
 echo DEPLOY_DIR: $DEPLOY_DIR
 echo DEPLOY_URL: $DEPLOY_URL
 
-mkdir $DEPLOY_DIR
+if [ ! -d $DEPLOY_DIR ]; then
+    mkdir $DEPLOY_DIR
+fi    
 cd $DEPLOY_DIR
 
 #Work out if we already have the latest version
@@ -76,6 +78,16 @@ mv $RB_SYSTEM/server/tf_env.new $RB_SYSTEM/server/tf_env.sh
 if [ -f $INSTALL_DIR/server/tf.sh ]; then
     echo Stopping $RB_SYSTEM
     $INSTALL_DIR/server/tf.sh stop;
+fi
+
+echo Removing old server libraries
+if [ -d $INSTALL_DIR/server/lib ]; then
+    echo Removing $INSTALL_DIR/server/lib
+    rm -rf $INSTALL_DIR/server/lib
+fi
+if [ -d $INSTALL_DIR/server/plugin ]; then
+    echo Removing $INSTALL_DIR/server/plugin
+    rm -rf $INSTALL_DIR/server/plugin
 fi
 
 echo Copying files across
