@@ -2,7 +2,7 @@
     #set($valueMap = $util.getList($item, $field))
     #foreach($key in $valueMap.keySet())
         #set($value = $valueMap.get($key))     
-            #if ($label != "" && $value.get($label)!= "")f				
+            #if ($label != "" && $value.get($label)!= "")				
                 #set($labelVal = $value.get($label))				
                 #if ($anzsrc == "anzsrc")
                     #set($lastIndex = $labelVal.lastIndexOf('/') + 1 )
