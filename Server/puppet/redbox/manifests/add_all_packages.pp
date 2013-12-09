@@ -1,7 +1,7 @@
-define redbox::packages($package_type=$title) {
+class redbox::add_all_packages($package_type = undef) {
 
   $packages = [ 'unzip',]
- 
+  
   ## start with simple package installations
   package { $packages :
     ensure   => installed,
@@ -14,4 +14,5 @@ define redbox::packages($package_type=$title) {
   ->
   class {'redbox::proxy_server':}
   -> anchor { 'package::end': }
+
 }

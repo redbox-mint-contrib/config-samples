@@ -50,22 +50,19 @@ class redbox {
  
   anchor { 'redbox::begin:': }
   ->
-  systemuser_add { $variables::defaults::redbox_user: }
+  add_systemuser { $variables::defaults::redbox_user: }
   -> 
-  directory_add { $variables::defaults::directories: 
+  add_directory { $variables::defaults::directories: 
     owner =>  $variables::defaults::redbox_user,
-    } 
+  } 
   ->
-  packages { $variables::defaults::package_type: }  
+  add_static_file { $variables::defaults::static_files:
+    owner => $variables::defaults::redbox_user,
+  }
   ->
-  exec {'wget https://raw.github.com/redbox-mint-contrib/config-samples/master/Server/deploy.sh  -O /home/redbox/deploy.sh':}
-  ->
-  file {"/home/redbox/deploy.sh":
-    ensure  => file,
-    owner   => $variables::defaults::redbox_user,
-    group   => $variables::defaults::redbox_user,
-    mode    => 744,
-    require => Exec['wget https://raw.github.com/redbox-mint-contrib/config-samples/master/Server/deploy.sh  -O /home/redbox/deploy.sh'],
+  class { 'add_all_packages':
+    package_type => $variables::defaults::package_type 
   }
   -> anchor { 'redbox::end': }
+
 }

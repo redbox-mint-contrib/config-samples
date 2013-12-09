@@ -4,6 +4,8 @@ class redbox::variables::defaults {
 
   $directories = [ 'redbox', 'mint', 'deploy', ]
 
+  $static_files = [ 'deploy.sh', 'redbox.cron', 'redbox-mint.sh', 'apache', ] 
+
   $exec_path = [
       '/usr/local/bin',
       '/opt/local/bin',
